@@ -1,0 +1,15 @@
+{
+  "name": "jspm-testem",
+  "version": "0.1.0",
+  "description": "Tests for JSPM projects with Testem",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "testem",
+    "jspm"
+  ],
+  "author": "Oleksii Rudenko (alexei.rudenko@gmail.com)",
+  "license": "MIT"
+}
