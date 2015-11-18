@@ -8,8 +8,8 @@ const loadTestem = () => {
   return System.import('/testem');
 };
 
-const setUpMocha = () => {
-  mocha.setup('bdd');
+const setUpMocha = (opts) => {
+  mocha.setup(opts);
   return Promise.resolve();
 };
 
@@ -29,18 +29,26 @@ const setUpChai = () => {
     });
 };
 
-export function run(tests, opts) {
+const prepareTarget = (framework) => {
+  const target = document.getElementById('target');
+  target.id = framework;
+};
+
+export function mocha(tests, opts) {
   tests = tests
     .map(t => t.replace(/&#x2F;/gi, '/'))
     .map(t => t.replace(/\.js$/gi, ''));
 
   return Promise.resolve()
+    .then(() => prepareTarget('mocha'))
     .then(() => loadMocha())
     .then(() => loadTestem())
-    .then(() => setUpMocha())
+    .then(() => setUpMocha(opts))
     .then(() => setUpChai())
     .then(() => loadTests(tests))
     .then(() => runTests());
 }
 
-export default run;
+export default {
+  mocha: mocha
+};
