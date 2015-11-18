@@ -34,7 +34,7 @@ const prepareTarget = (framework) => {
   target.id = framework;
 };
 
-export function mocha(tests) {
+export function mochaTests(tests) {
   tests = tests
     .map(t => t.replace(/&#x2F;/gi, '/'))
     .map(t => t.replace(/\.js$/gi, ''));
@@ -54,5 +54,5 @@ export function mocha(tests) {
 }
 
 export default {
-  mocha: mocha
+  mochaTests: mochaTests
 };
