@@ -15,9 +15,11 @@
       {{#serve_files}}
         tests.push("{{src}}");
       {{/serve_files}}
-      System.import('jspm-testem').then(runner => {
-        runner.mochaTests(tests, {
-          // mocha opts
+      System.import('babel/polyfill').then(function() {
+        System.import('jspm-testem').then(function(runner) {
+          runner.mochaTests(tests, {
+            // mocha opts
+          });
         });
       });
     </script>
