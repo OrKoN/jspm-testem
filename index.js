@@ -34,10 +34,14 @@ const prepareTarget = (framework) => {
   target.id = framework;
 };
 
-export function mocha(tests, opts) {
+export function mocha(tests) {
   tests = tests
     .map(t => t.replace(/&#x2F;/gi, '/'))
     .map(t => t.replace(/\.js$/gi, ''));
+
+  let opts = {
+    ui: 'bdd'
+  };
 
   return Promise.resolve()
     .then(() => prepareTarget('mocha'))
