@@ -1,5 +1,7 @@
 /* globals System, mocha, Promise */
 
+import { defaults } from 'lodash';
+
 const loadMocha = () => {
   return System.import('mocha');
 };
@@ -34,14 +36,17 @@ const prepareTarget = (framework) => {
   target.id = framework;
 };
 
-export function mochaTests(tests) {
-  tests = tests
-    .map(t => t.replace(/&#x2F;/gi, '/'))
-    .map(t => t.replace(/\.js$/gi, ''));
+const normalizeTestPath = (test) => {
+  return test.replace(/&#x2F;/gi, '/').replace(/\.js$/gi, '');
+};
 
-  let opts = {
+export function mochaTests(tests, opts) {
+  tests = tests.map(normalizeTestPath);
+
+  // TODO: parse options for URL
+  defaults(opts, {
     ui: 'bdd'
-  };
+  });
 
   return Promise.resolve()
     .then(() => prepareTarget('mocha'))

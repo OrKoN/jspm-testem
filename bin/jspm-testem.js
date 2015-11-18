@@ -22,6 +22,5 @@ copy(TEST_RUNNER);
 copy(TEST_TESTEM);
 
 var jspm = require('jspm');
-
 jspm
   .install('jspm-testem', 'github:OrKoN/jspm-testem@master');
