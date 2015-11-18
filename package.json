@@ -1,6 +1,6 @@
 {
   "name": "jspm-testem",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Tests for JSPM projects with Testem",
   "main": "index.js",
   "scripts": {
