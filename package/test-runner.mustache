@@ -17,7 +17,7 @@
       {{/serve_files}}
       System.import('jspm-testem').then(runner => {
         runner.mochaTests(tests, {
-          ui: 'bdd'
+          // mocha opts
         });
       });
     </script>
