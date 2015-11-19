@@ -29,20 +29,20 @@ const normalizeTestPath = (test) => {
 
 const loadFramework = (framework, opts) => {
   return System
-    .import('./frameworks/' + framework + '/load')
-    .then(load => load());
+    .import('jspm-testem/frameworks/' + framework + '/load')
+    .then(load => load.default());
 };
 
 const setupFramework = (framework, opts) => {
   return System
-    .import('./frameworks/' + framework + '/setup')
-    .then(setup => setup(opts));
+    .import('jspm-testem/frameworks/' + framework + '/setup')
+    .then(setup => setup.default(opts));
 };
 
 const runFramework = (framework, opts) => {
   return System
-    .import('./frameworks/' + framework + '/run')
-    .then(run => run(opts));
+    .import('jspm-testem/frameworks/' + framework + '/run')
+    .then(run => run.default(opts));
 };
 
 export function runTests(framework, tests, opts) {
