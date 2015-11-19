@@ -17,8 +17,8 @@
       {{/serve_files}}
       System.import('babel/polyfill').then(function() {
         System.import('jspm-testem').then(function(runner) {
-          runner.mochaTests(tests, {
-            // mocha opts
+          runner.runTests('%Framework%', tests, {
+            // additional opts
           });
         });
       });

@@ -17,10 +17,11 @@
   },
   "jspm": {
     "registry": "jspm",
-    "dependencies": {
-      "chai": "*",
-      "mocha": "*",
-      "lodash": "*"
-    }
+    "dependencies": {}
+  },
+  "dependencies": {
+    "lodash": "^3.10.1",
+    "minimist": "^1.2.0",
+    "replacestream": "^4.0.0"
   }
 }

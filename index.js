@@ -2,25 +2,12 @@
 
 import { defaults } from 'lodash';
 
-const loadMocha = () => {
-  return System.import('mocha');
-};
-
 const loadTestem = () => {
   return System.import('/testem');
 };
 
-const setUpMocha = (opts) => {
-  mocha.setup(opts);
-  return Promise.resolve();
-};
-
 const loadTests = (tests) => {
   return Promise.all(tests.map(test => System.import(test)));
-};
-
-const runTests = () => {
-  mocha.run();
 };
 
 const setUpChai = () => {
@@ -40,7 +27,25 @@ const normalizeTestPath = (test) => {
   return test.replace(/&#x2F;/gi, '/').replace(/\.js$/gi, '');
 };
 
-export function mochaTests(tests, opts) {
+const loadFramework = (framework, opts) => {
+  return System
+    .import('./frameworks/' + framework + '/load')
+    .then(load => load());
+};
+
+const setupFramework = (framework, opts) => {
+  return System
+    .import('./frameworks/' + framework + '/setup')
+    .then(setup => setup(opts));
+};
+
+const runFramework = (framework, opts) => {
+  return System
+    .import('./frameworks/' + framework + '/run')
+    .then(run => run(opts));
+};
+
+export function runTests(framework, tests, opts) {
   tests = tests.map(normalizeTestPath);
 
   // TODO: parse options for URL
@@ -50,14 +55,14 @@ export function mochaTests(tests, opts) {
 
   return Promise.resolve()
     .then(() => prepareTarget('mocha'))
-    .then(() => loadMocha())
+    .then(() => loadFramework(framework, opts))
     .then(() => loadTestem())
-    .then(() => setUpMocha(opts))
+    .then(() => setupFramework(framework, opts))
     .then(() => setUpChai())
     .then(() => loadTests(tests))
-    .then(() => runTests());
+    .then(() => runFramework(framework));
 }
 
 export default {
-  mochaTests: mochaTests
+  runTests: runTests
 };
