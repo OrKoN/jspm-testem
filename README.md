@@ -1,5 +1,7 @@
 ## JSPM-Testem
 
+[![npm version](https://badge.fury.io/js/jspm-testem.svg)](http://badge.fury.io/js/jspm-testem)
+
 Project that automates adding Testem tests to a JSPM-powered project.
 
 ## Installation
