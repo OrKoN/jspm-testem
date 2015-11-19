@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Unit Tests</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jspm_packages/system.js"></script>
+    <script src="config.js"></script>
+  </head>
+  <body>
+    <div id="target"></div>
+    <script>
+      var tests = [];
+      {{#serve_files}}
+        tests.push("{{src}}");
+      {{/serve_files}}
+      System.import('babel/polyfill').then(function() {
+        System.import('jspm-testem').then(function(runner) {
+          runner.runTests('mocha', tests, {
+            // additional opts
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

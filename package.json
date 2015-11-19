@@ -4,7 +4,7 @@
   "description": "Tests for JSPM projects with Testem",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "testem ci"
   },
   "keywords": [
     "testem",
@@ -17,11 +17,32 @@
   },
   "jspm": {
     "registry": "jspm",
-    "dependencies": {}
+    "dependencies": {},
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "chai": "npm:chai@^3.4.1",
+      "core-js": "npm:core-js@^1.1.4",
+      "jspm-testem": "github:OrKoN/jspm-testem@master",
+      "lodash": "npm:lodash@^3.10.1",
+      "mocha": "npm:mocha@^2.3.4"
+    },
+    "overrides": {
+      "github:OrKoN/jspm-testem@master": {
+        "dependencies": {
+          "mocha": "*",
+          "chai": "*",
+          "lodash": "*"
+        }
+      }
+    }
   },
   "dependencies": {
     "lodash": "^3.10.1",
     "minimist": "^1.2.0",
     "replacestream": "^4.0.0"
+  },
+  "devDependencies": {
+    "testem": "^0.9.11"
   }
 }
