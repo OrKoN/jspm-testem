@@ -1,5 +1,5 @@
 module.exports = {
-  'mocha': '*',
+  'qunit': '*',
   'chai': '*',
   'lodash': '*'
 };

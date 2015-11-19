@@ -1,5 +1,5 @@
 /* globals System, mocha, Promise */
 
 export default () => {
-  return System.import('mocha');
+  return System.import('qunit');
 };

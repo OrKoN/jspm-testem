@@ -1,0 +1,4 @@
+/* globals QUnit */
+
+export default () => {
+};

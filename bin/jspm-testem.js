@@ -5,17 +5,16 @@ var _ = require('lodash');
 var replaceStream = require('replacestream');
 
 var TEST_DIR = './test';
-var TEST_BASIC = './test/basic.js';
 var TEST_RUNNER = './test-runner.mustache';
 var TEST_TESTEM = './testem.json';
 var argv = require('minimist')(process.argv.slice(2));
 var opts = {};
 
-function copy(file, opts) {
-  if (opts.force || !fs.existsSync(file)) {
-    fs.createReadStream(__dirname + '/../package/' + file)
+function copy(src, dest, opts) {
+  if (opts.force || !fs.existsSync(dest)) {
+    fs.createReadStream(src)
       .pipe(replaceStream('%Framework%', opts.framework))
-      .pipe(fs.createWriteStream(file));
+      .pipe(fs.createWriteStream(dest));
   }
 }
 
@@ -31,9 +30,9 @@ _.defaults(opts, argv, {
 });
 
 ensureDir(TEST_DIR);
-copy(TEST_BASIC, opts);
-copy(TEST_RUNNER, opts);
-copy(TEST_TESTEM, opts);
+copy(__dirname + '/../frameworks/' + opts.framework + '/basic.js', './test/basic.js', opts);
+copy(__dirname + '/../package/' + TEST_RUNNER, TEST_RUNNER, opts);
+copy(__dirname + '/../package/' + TEST_TESTEM, TEST_TESTEM, opts);
 
 var pjson = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
 
