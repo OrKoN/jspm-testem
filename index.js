@@ -18,9 +18,10 @@ const setUpChai = () => {
     });
 };
 
-const prepareTarget = (framework) => {
-  const target = document.getElementById('target');
-  target.id = framework;
+const prepareFrameworkMarkup = (framework) => {
+  return System
+    .import('jspm-testem/frameworks/' + framework + '/markup')
+    .then(markup => markup.default());
 };
 
 const normalizeTestPath = (test) => {
@@ -54,7 +55,7 @@ export function runTests(framework, tests, opts) {
   });
 
   return Promise.resolve()
-    .then(() => prepareTarget('mocha'))
+    .then(() => prepareFrameworkMarkup(framework))
     .then(() => loadFramework(framework, opts))
     .then(() => loadTestem())
     .then(() => setupFramework(framework, opts))
