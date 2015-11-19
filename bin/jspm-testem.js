@@ -44,9 +44,11 @@ if (!pjson.jspm.overrides) {
   pjson.jspm.overrides = {};
 }
 
+var frameworkDependencies = require('../frameworks/' + opts.framework + '/dependencies');
+
 pjson.jspm.overrides = {
   'github:OrKoN/jspm-testem@master': {
-    'dependencies': require('../frameworks/' + opts.framework + '/dependencies')
+    'dependencies': frameworkDependencies
   }
 };
 
@@ -56,4 +58,9 @@ var jspm = require('jspm');
 jspm
   .install('jspm-testem',
     'github:OrKoN/jspm-testem@master',
-    { dev: true });
+    { dev: true })
+  .then(() => console.log('Installed jspm-testem with ' + opts.framework + ' support'))
+  .then(() => jspm
+  .install(frameworkDependencies, { dev: true }))
+  .catch((err) => console.error('Failed to install jspm-testem with ' + opts.framework + ' support', err));
+
