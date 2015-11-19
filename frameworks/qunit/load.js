@@ -5,5 +5,8 @@ export default () => {
     .import('qunit')
     .then(() => {
       QUnit.config.autostart = false;
+    })
+    .then(() => {
+      return System.import('qunit/qunit/qunit.css!');
     });
 };

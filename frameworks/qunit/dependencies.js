@@ -1,5 +1,6 @@
 module.exports = {
   'qunit': '*',
   'chai': '*',
-  'lodash': '*'
+  'lodash': '*',
+  'css': '*'
 };
