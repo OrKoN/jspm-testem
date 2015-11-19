@@ -43,6 +43,7 @@
     "replacestream": "^4.0.0"
   },
   "devDependencies": {
+    "jspm": "^0.16.15",
     "testem": "^0.9.11"
   }
 }
