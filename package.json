@@ -3,14 +3,21 @@
   "version": "0.2.1",
   "description": "Tests for JSPM projects with Testem",
   "main": "index.js",
+  "repository" : {
+     "type" : "git",
+     "url" : "https://github.com/OrKoN/jspm-testem.git"
+   },
   "scripts": {
     "test": "testem ci"
   },
   "keywords": [
     "testem",
-    "jspm"
+    "jspm",
+    "mocha",
+    "qunit",
+    "systemjs"
   ],
-  "author": "Oleksii Rudenko (alexei.rudenko@gmail.com)",
+  "author": "Oleksii Rudenko <alexei.rudenko@gmail.com>",
   "license": "MIT",
   "bin": {
     "jspm-testem": "./bin/jspm-testem.js"
