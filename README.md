@@ -12,7 +12,7 @@ It supports the following test frameworks:
 
  - [mocha](https://mochajs.org/)
  - [qunit](https://qunitjs.com/)
- - [jasmine](http://jasmine.github.io/)*Not yet implemented*
+ - [jasmine](http://jasmine.github.io/) (*Not yet implemented*)
 
 The tests run in the browser and many browsers are supported with Testem launchers: https://github.com/testem/testem#launchers
 
