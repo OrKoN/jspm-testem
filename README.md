@@ -19,7 +19,7 @@ The tests run in the browser and many browsers are supported with Testem launche
 
 ## Installation
 
-jspm-testem is both a JSPM-compatible JS module and a cli command. The cli command automates the setup and the JS module integrates Testem, JSPM and test frameworks in the runtime.
+jspm-testem is both a JSPM-compatible JS module and a cli command. The cli command automates the setup of the tests and the JS module integrates Testem, JSPM and test frameworks during the runtime.
 
 To install the CLI tool:
 
