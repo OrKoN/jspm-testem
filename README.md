@@ -100,4 +100,4 @@ The project is in very early stages. The API and functionality may change. If yo
 
 ## LICENSE
 
-MIT
+[MIT](LICENSE)
