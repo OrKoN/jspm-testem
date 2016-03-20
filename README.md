@@ -1,7 +1,9 @@
 ## JSPM Testem
 
-[![npm version](https://badge.fury.io/js/jspm-testem.svg)](http://badge.fury.io/js/jspm-testem)
+[![Version](https://img.shields.io/npm/v/jspm-testem.svg)](https://www.npmjs.com/package/jspm-testem)
 [![Build Status](http://img.shields.io/travis/OrKoN/jspm-testem.svg?style=flat)](https://travis-ci.org/OrKoN/jspm-testem)
+[![Downloads](https://img.shields.io/npm/dm/jspm-testem.svg)](https://www.npmjs.com/package/jspm-testem)
+[![Dependencies](https://img.shields.io/david/OrKoN/jspm-testem.svg)](https://github.com/OrKoN/jspm-testem/blob/master/package.json)
 
 This project automates the setup of tests for JSPM-powered projects using Testem.
 
