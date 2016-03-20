@@ -45,12 +45,12 @@
     }
   },
   "dependencies": {
-    "lodash": "^3.10.1",
+    "lodash": "^4.6.1",
     "minimist": "^1.2.0",
     "replacestream": "^4.0.0"
   },
   "devDependencies": {
-    "jspm": "^0.16.15",
-    "testem": "^0.9.11"
+    "jspm": "^0.16.31",
+    "testem": "^1.5.0"
   }
 }
